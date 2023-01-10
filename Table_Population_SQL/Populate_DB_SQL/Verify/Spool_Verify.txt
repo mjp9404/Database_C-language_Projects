@@ -1,0 +1,307 @@
+
+ COURSE_ID COURSE_NAME                                                  CITY                           POSTAL COUNTRY    AVERAGE_RATING DESCRIPTION                                                                                              LENGTH YEAR_BUILT
+---------- ------------------------------------------------------------ ------------------------------ ------ ---------- -------------- ---------------------------------------------------------------------------------------------------- ---------- ----------
+1111111111 Dubsdread Golf Course                                        Orlando                        T3K3J1 USA                     4 Classic course with beautiful scenery                                                                      6153       1923
+4815162342 Black Bear Golf Club                                         Florida                        T3K3J1 USA                     4 This course is wicked! Enjoy the ride and dont slide!                                                      7002       1995
+2345633255 Shingle Creek Golf Club                                      Orlando                        T3K3J1 USA                     5 If youre at the shingle its time to mingle!                                                                7213       2003
+1234567891 Falcons Fire Golf Club                                       Kissimmee                      T3K3J1 USA                     4 Fire like a falcon on this championship golf course!                                                       7000       1993
+1452563059 Tooth Course at Orange County National                       Winter Garden                  T3K3J1 USA                     4 Whatever the goal, OCN has something for you!                                                              1563       1997
+
+
+TEE_TIME  COURSE_ID      PRICE H      HOLES AV
+-------- ---------- ---------- - ---------- --
+15-01-01 1111111111      38.95 Y          9 23
+15-03-01 1111111111      38.95 Y         18 33
+15-02-01 1111111111      38.95 Y          9 5 
+15-04-01 4815162342      56.07 Y         18 23
+15-05-01 4815162342      56.07 Y         18 7 
+15-06-01 4815162342      56.07 Y         18 4 
+15-07-01 2345633255         99 Y         18 1 
+15-08-01 2345633255      91.99 Y          9 2 
+15-09-01 2345633255     118.99 Y          9 10
+15-10-01 1234567891         31 Y         18 1 
+15-11-01 1234567891         94 Y         18 3 
+
+TEE_TIME  COURSE_ID      PRICE H      HOLES AV
+-------- ---------- ---------- - ---------- --
+15-12-01 1234567891         99 Y         18 11
+15-02-02 1452563059          7 N          9 3 
+15-02-03 1452563059         25 N          9 15
+15-02-04 1452563059         25 N          9 16
+
+15 rows selected. 
+
+
+CUSTOMER_ID FAVORITE_COURSE_ID EMAIL_ADDRESS                                                FIRST_NAME LAST_NAME  GIFT_CARD_CREDIT AMOUNT_OF_CARDS
+----------- ------------------ ------------------------------------------------------------ ---------- ---------- ---------------- ---------------
+ 4987635324         1111111111 urmom@yahoo.com                                              Ryan       Reynolds                 50               2
+ 1894658914         4815162342 johndoe@yahoo.com                                            John       Doe                     100               2
+ 7459254439         1234567891 aboutdrive@yahoo.com                                         Dwayne     Johnson                 500               1
+
+
+CARD_NUMBER CUSTOMER_ID NAME_ON_CARD         EXPIRATION_DATE DEFAULT_CARD
+----------- ----------- -------------------- --------------- ------------
+ 4.5006E+15  4987635324 Ryan Reynolds                   1122            0
+ 4.5006E+15  4987635324 Ryan Reynolds                   1123            1
+ 4.5006E+15  1894658914 John Doe                        1022            0
+ 4.5006E+15  1894658914 John Doe                        1023            1
+ 4.5006E+15  7459254439 Dwayne Johnson                  1224            1
+
+
+RESERVATION_ID CUSTOMER_ID TEE_TIME    PLAYERS GREEN_FEES_PAID   TAX_PAID AMOUNT_CHARGED
+-------------- ----------- -------- ---------- --------------- ---------- --------------
+    1123456789  4987635324 15-01-01          1            1000         50           1050
+    1223456789  1894658914 15-04-01          2            2000        100           2100
+    1323456789  7459254439 15-07-01          3            3000        150           3150
+    1423456789  1894658914 15-10-01          4            4000        200           4200
+    1523456789  7459254439 15-02-02          5            5000        250           5250
+
+
+ REVIEW_ID  COURSE_ID CUSTOMER_ID TITLE                                              COMMENTS                                                                                                                                                                                                 STAR_RATING
+---------- ---------- ----------- -------------------------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -----------
+1234567890 1111111111  1894658914 Great Service                                      the staff was kind                                                                                                                                                                                                 5
+1234567891 4815162342  4987635324 Customer Service                                   some staff was rude but service not bad                                                                                                                                                                            3
+1234567892 2345633255  7459254439 Cleaning status                                    Cleaning is a little bit bad but the service was great                                                                                                                                                             4
+
+
+REWARDS_ID CUSTOMER_ID PROMOS_OWNED
+---------- ----------- ------------
+6543215648  4987635324            1
+8465498795  1894658914            1
+4654987653  7459254439            1
+
+
+PRO_CODE           REWARDS_ID RESERVATION_ID    IS_USED      VALUE DATE_ISS EXPIRY_DATE
+------------------ ---------- -------------- ---------- ---------- -------- -----------
+1234ABCD1234ABCD69 4654987653     1123456789          0         10 14-12-02        2412
+1234AXXD2334AYYD69 4654987653     1223456789          1        .01 15-02-02        2502
+5678EFGH9969THXY69 8465498795     1323456789          0         10 14-08-02        2408
+9984HEHE3737COOL69 8465498795     1423456789          0         10 14-03-02        2403
+4474POPO3847BLEH69 6543215648     1523456789          0         10 14-06-02        2406
+
+
+CUSTOMER_ID  COURSE_ID
+----------- ----------
+ 1894658914 2345633255
+ 4987635324 1111111111
+ 7459254439 1452563059
+
+
+CARD_NUMBER RESERVATION_ID
+----------- --------------
+ 4.5006E+15     1123456789
+ 4.5006E+15     1523456789
+
+SQL> set verify on
+SQL> spool c:/cprg250s/verifyOutput2.txt
+SQL> 
+SQL>   --- Verify populated COURSE_INFORMATION TABLE---
+SQL> SELECT * FROM COURSE_INFORMATION;
+>>Query Run In:Query Result
+SQL> 
+SQL>  --- Verify populated TEE_TIMES TABLE---
+SQL> SELECT * FROM TEE_TIMES;
+>>Query Run In:Query Result 1
+SQL> 
+SQL>  --- Verify populated CUSTOMER TABLE---
+SQL> SELECT * FROM CUSTOMER;
+>>Query Run In:Query Result 2
+SQL> 
+SQL>  --- Verify populated CERDIT_CARD TABLE---
+SQL> SELECT * FROM CREDIT_CARD;
+>>Query Run In:Query Result 3
+SQL> 
+SQL> --- Verify populated RESERVATION TABLE ---
+SQL> SELECT * FROM RESERVATION;
+>>Query Run In:Query Result 4
+SQL> 
+SQL> --- Verify populated CUSTOMER_REVIEW TABLE---
+SQL> SELECT * FROM CUSTOMER_REVIEW;
+>>Query Run In:Query Result 5
+SQL> 
+SQL> --- Verify populated FOREEVER_REWARDS TABLE---
+SQL> SELECT * FROM FOREEVER_REWARDS;
+>>Query Run In:Query Result 6
+SQL> 
+SQL> --- Verify populated PROMO_CODE TABLE---
+SQL> SELECT * FROM PROMO_CODE;
+>>Query Run In:Query Result 7
+SQL> 
+SQL> --- Verify populated CUSTOMER_COURSE_BRIDGE TABLE ---
+SQL> SELECT * FROM CUSTOMER_COURSE_BRIDGE;
+>>Query Run In:Query Result 8
+SQL> 
+SQL> --- Verify populated CREDIT_RESERVATION_BRIDGE TABLE ---
+SQL> SELECT * FROM CREDIT_RESERVATION_BRIDGE;
+>>Query Run In:Query Result 9
+SQL> 
+SQL> 
+SQL> spool off
+SQL> set echo on
+SQL> set verify on
+SQL> 
+SQL>   --- Verify populated COURSE_INFORMATION TABLE---
+SQL> SELECT * FROM COURSE_INFORMATION;
+>>Query Run In:Query Result 10
+SQL> 
+SQL>  --- Verify populated TEE_TIMES TABLE---
+SQL> SELECT * FROM TEE_TIMES;
+>>Query Run In:Query Result 11
+SQL> 
+SQL>  --- Verify populated CUSTOMER TABLE---
+SQL> SELECT * FROM CUSTOMER;
+>>Query Run In:Query Result 12
+SQL> 
+SQL>  --- Verify populated CERDIT_CARD TABLE---
+SQL> SELECT * FROM CREDIT_CARD;
+>>Query Run In:Query Result 13
+SQL> 
+SQL> --- Verify populated RESERVATION TABLE ---
+SQL> SELECT * FROM RESERVATION;
+>>Query Run In:Query Result 14
+SQL> 
+SQL> --- Verify populated CUSTOMER_REVIEW TABLE---
+SQL> SELECT * FROM CUSTOMER_REVIEW;
+>>Query Run In:Query Result 15
+SQL> 
+SQL> --- Verify populated FOREEVER_REWARDS TABLE---
+SQL> SELECT * FROM FOREEVER_REWARDS;
+>>Query Run In:Query Result 16
+SQL> 
+SQL> --- Verify populated PROMO_CODE TABLE---
+SQL> SELECT * FROM PROMO_CODE;
+>>Query Run In:Query Result 17
+SQL> 
+SQL> --- Verify populated CUSTOMER_COURSE_BRIDGE TABLE ---
+SQL> SELECT * FROM CUSTOMER_COURSE_BRIDGE;
+>>Query Run In:Query Result 18
+SQL> 
+SQL> --- Verify populated CREDIT_RESERVATION_BRIDGE TABLE ---
+SQL> SELECT * FROM CREDIT_RESERVATION_BRIDGE;
+>>Query Run In:Query Result 19
+SQL> set echo on
+SQL> set verify on
+SQL> 
+SQL>   --- Verify populated COURSE_INFORMATION TABLE---
+SQL> SELECT * FROM COURSE_INFORMATION;
+
+ COURSE_ID COURSE_NAME                                                  CITY                           POSTAL COUNTRY    AVERAGE_RATING DESCRIPTION                                                                                              LENGTH YEAR_BUILT
+---------- ------------------------------------------------------------ ------------------------------ ------ ---------- -------------- ---------------------------------------------------------------------------------------------------- ---------- ----------
+1111111111 Dubsdread Golf Course                                        Orlando                        T3K3J1 USA                     4 Classic course with beautiful scenery                                                                      6153       1923
+4815162342 Black Bear Golf Club                                         Florida                        T3K3J1 USA                     4 This course is wicked! Enjoy the ride and dont slide!                                                      7002       1995
+2345633255 Shingle Creek Golf Club                                      Orlando                        T3K3J1 USA                     5 If youre at the shingle its time to mingle!                                                                7213       2003
+1234567891 Falcons Fire Golf Club                                       Kissimmee                      T3K3J1 USA                     4 Fire like a falcon on this championship golf course!                                                       7000       1993
+1452563059 Tooth Course at Orange County National                       Winter Garden                  T3K3J1 USA                     4 Whatever the goal, OCN has something for you!                                                              1563       1997
+
+SQL> 
+SQL>  --- Verify populated TEE_TIMES TABLE---
+SQL> SELECT * FROM TEE_TIMES;
+
+TEE_TIME  COURSE_ID      PRICE H      HOLES AV
+-------- ---------- ---------- - ---------- --
+15-01-01 1111111111      38.95 Y          9 23
+15-03-01 1111111111      38.95 Y         18 33
+15-02-01 1111111111      38.95 Y          9 5 
+15-04-01 4815162342      56.07 Y         18 23
+15-05-01 4815162342      56.07 Y         18 7 
+15-06-01 4815162342      56.07 Y         18 4 
+15-07-01 2345633255         99 Y         18 1 
+15-08-01 2345633255      91.99 Y          9 2 
+15-09-01 2345633255     118.99 Y          9 10
+15-10-01 1234567891         31 Y         18 1 
+15-11-01 1234567891         94 Y         18 3 
+
+TEE_TIME  COURSE_ID      PRICE H      HOLES AV
+-------- ---------- ---------- - ---------- --
+15-12-01 1234567891         99 Y         18 11
+15-02-02 1452563059          7 N          9 3 
+15-02-03 1452563059         25 N          9 15
+15-02-04 1452563059         25 N          9 16
+
+15 rows selected. 
+
+SQL> 
+SQL>  --- Verify populated CUSTOMER TABLE---
+SQL> SELECT * FROM CUSTOMER;
+
+CUSTOMER_ID FAVORITE_COURSE_ID EMAIL_ADDRESS                                                FIRST_NAME LAST_NAME  GIFT_CARD_CREDIT AMOUNT_OF_CARDS
+----------- ------------------ ------------------------------------------------------------ ---------- ---------- ---------------- ---------------
+ 4987635324         1111111111 urmom@yahoo.com                                              Ryan       Reynolds                 50               2
+ 1894658914         4815162342 johndoe@yahoo.com                                            John       Doe                     100               2
+ 7459254439         1234567891 aboutdrive@yahoo.com                                         Dwayne     Johnson                 500               1
+
+SQL> 
+SQL>  --- Verify populated CERDIT_CARD TABLE---
+SQL> SELECT * FROM CREDIT_CARD;
+
+CARD_NUMBER CUSTOMER_ID NAME_ON_CARD         EXPIRATION_DATE DEFAULT_CARD
+----------- ----------- -------------------- --------------- ------------
+ 4.5006E+15  4987635324 Ryan Reynolds                   1122            0
+ 4.5006E+15  4987635324 Ryan Reynolds                   1123            1
+ 4.5006E+15  1894658914 John Doe                        1022            0
+ 4.5006E+15  1894658914 John Doe                        1023            1
+ 4.5006E+15  7459254439 Dwayne Johnson                  1224            1
+
+SQL> 
+SQL> --- Verify populated RESERVATION TABLE ---
+SQL> SELECT * FROM RESERVATION;
+
+RESERVATION_ID CUSTOMER_ID TEE_TIME    PLAYERS GREEN_FEES_PAID   TAX_PAID AMOUNT_CHARGED
+-------------- ----------- -------- ---------- --------------- ---------- --------------
+    1123456789  4987635324 15-01-01          1            1000         50           1050
+    1223456789  1894658914 15-04-01          2            2000        100           2100
+    1323456789  7459254439 15-07-01          3            3000        150           3150
+    1423456789  1894658914 15-10-01          4            4000        200           4200
+    1523456789  7459254439 15-02-02          5            5000        250           5250
+
+SQL> 
+SQL> --- Verify populated CUSTOMER_REVIEW TABLE---
+SQL> SELECT * FROM CUSTOMER_REVIEW;
+
+ REVIEW_ID  COURSE_ID CUSTOMER_ID TITLE                                              COMMENTS                                                                                                                                                                                                 STAR_RATING
+---------- ---------- ----------- -------------------------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -----------
+1234567890 1111111111  1894658914 Great Service                                      the staff was kind                                                                                                                                                                                                 5
+1234567891 4815162342  4987635324 Customer Service                                   some staff was rude but service not bad                                                                                                                                                                            3
+1234567892 2345633255  7459254439 Cleaning status                                    Cleaning is a little bit bad but the service was great                                                                                                                                                             4
+
+SQL> 
+SQL> --- Verify populated FOREEVER_REWARDS TABLE---
+SQL> SELECT * FROM FOREEVER_REWARDS;
+
+REWARDS_ID CUSTOMER_ID PROMOS_OWNED
+---------- ----------- ------------
+6543215648  4987635324            1
+8465498795  1894658914            1
+4654987653  7459254439            1
+
+SQL> 
+SQL> --- Verify populated PROMO_CODE TABLE---
+SQL> SELECT * FROM PROMO_CODE;
+
+PRO_CODE           REWARDS_ID RESERVATION_ID    IS_USED      VALUE DATE_ISS EXPIRY_DATE
+------------------ ---------- -------------- ---------- ---------- -------- -----------
+1234ABCD1234ABCD69 4654987653     1123456789          0         10 14-12-02        2412
+1234AXXD2334AYYD69 4654987653     1223456789          1        .01 15-02-02        2502
+5678EFGH9969THXY69 8465498795     1323456789          0         10 14-08-02        2408
+9984HEHE3737COOL69 8465498795     1423456789          0         10 14-03-02        2403
+4474POPO3847BLEH69 6543215648     1523456789          0         10 14-06-02        2406
+
+SQL> 
+SQL> --- Verify populated CUSTOMER_COURSE_BRIDGE TABLE ---
+SQL> SELECT * FROM CUSTOMER_COURSE_BRIDGE;
+
+CUSTOMER_ID  COURSE_ID
+----------- ----------
+ 1894658914 2345633255
+ 4987635324 1111111111
+ 7459254439 1452563059
+
+SQL> 
+SQL> --- Verify populated CREDIT_RESERVATION_BRIDGE TABLE ---
+SQL> SELECT * FROM CREDIT_RESERVATION_BRIDGE;
+
+CARD_NUMBER RESERVATION_ID
+----------- --------------
+ 4.5006E+15     1123456789
+ 4.5006E+15     1523456789
+
